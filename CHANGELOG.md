@@ -164,6 +164,7 @@
   * Timeline naming improvements: `Spine AnimationState Clip` Inspector parameter `Custom Duration` changed and inverted to `Default Mix Duration` for more clarity. Shortened all Timeline add track menu entries from: `Spine.Unity.Playables - <track type>` to `Spine - <track type>`, `Spine Animation State Track` to `SkeletonAnimation Track`, `Spine AnimationState Graphic Track` to `SkeletonGraphic Track`, and `Spine Skeleton Flip Track` to `Skeleton Flip Track`.
   * Timeline track appearance and Inspector: Tracks now show icons and track colors to make them easier to distinguish. When a Track is selected, the Inspector now shows an editable track name which was previously only editable at the Timeline asset.
   * Added example component `SkeletonRenderTexture` to render a `SkeletonRenderer` to a `RenderTexture`, mainly for proper transparency. Added an example scene named `RenderTexture FadeOut Transparency` that demonstrates usage for a fadeout transparency effect.
+  * Added another fadeout example component named `SkeletonRenderTextureFadeout` which takes over transparency fadeout when enabled. You can use this component as-is, attach it in disabled state and enable it to start a fadeout effect.
 
 * **Changes of default values**
 
@@ -633,6 +634,8 @@
   * Added `MeshAttachment#newLinkedMesh()`, creates a linked mesh linkted to either the original mesh, or the parent of the original mesh.
   * Added IK softness.
   * Added `AssetManager.setRawDataURI(path, data)`. Allows to embed data URIs for skeletons, atlases and atlas page images directly in the HTML/JS without needing to load it from a separate file.
+  * Added `AssetManager.loadAll()` to allow Promise/async/await based waiting for completion of asset load. See the `spine-canvas` examples.
+  * Added `Skeleton.getBoundRect()` helper method to calculate the bouding rectangle of the current pose, returning the result as `{ x, y, width, height }`. Note that this method will create temporary objects which can add to garbage collection pressure.
 
 ### WebGL backend
 * `Input` can now take a partially defined implementation of `InputListener`.
